@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<style>
+    #id_username, #id_password {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 1px solid #D1D5DB; 
+        border-radius: 0.5rem; 
+        transition: border-color 0.2s, box-shadow 0.2s;
+        appearance: none; 
+    }
+
+    #id_username:focus, #id_password:focus {
+        outline: none;
+        border-color: #2563EB; 
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    }
+    
+    
+    form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600; 
+        color: #374151; 
+    }
+</style>
+
+<div class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 space-y-8 bg-white shadow-2xl rounded-2xl border-t-4 border-blue-600">
+        <div class="text-center">
+            <svg class="mx-auto h-12 w-auto text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" />
+            </svg>
+            <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+                Admin Mode
+            </h2>
+        </div>
+        {% if form.errors %}
+        <div class="p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+            <p>Invalid Credentials. Please try again.</p>
+        </div>
+        {% endif %}
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105">
+                Log In as Admin
+            </button>
+        </form>
+
+        <hr class="border-gray-200">
+        <p class="text-center text-md text-gray-600">
+            <a href="{% url 'landing_page' %}" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
+                ← Back to main page
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
