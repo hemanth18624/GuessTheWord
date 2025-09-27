@@ -50,7 +50,7 @@ This application is built from the ground up to be secure, robust, and user-frie
 Follow these steps to get the project up and running on your local machine.
 
 #### 1. Prerequisites
-* Python 3.x
+* Python 3.9 and Above
 * pip (Python package installer)
 
 #### 2. Clone the Repository
