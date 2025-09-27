@@ -57,9 +57,17 @@ Follow these steps to get the project up and running on your local machine.
 ```bash
 git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
 cd your-repo-name
+```
 
-#### 3. Database and Intial Data
-```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py load_words
+#### 3. Database and Initial Data
+* Run ```bash python manage.py makemigrations```
+* Run ```bash python manage.py migrate ```
+* Run ```bash python manage.py load_words``` to populate the database with the initial set of words.
+
+#### 4. Create a Superuser (for Admin access)
+* Run ```bash python manage.py createsuperuser``` and follow the prompts. This account will be used to access the reports dashboard.
+
+#### 5. Run the Development Server
+* Run ```bash python manage.py runserver```
+* Open your web browser and go to ```bash http://127.0.0.1:8000/ ```.
+
