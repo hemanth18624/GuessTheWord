@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Play Game{% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto mt-10 text-center">
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">Guess the Word</h1>
+    <div class="grid grid-rows-5 gap-2 mb-6">
+        {% for feedback_row in guesses_with_feedback %}
+            <div class="grid grid-cols-5 gap-2">
+                {% for item in feedback_row %}
+                    <div class="w-16 h-16 border-2 flex items-center justify-center text-3xl font-bold text-white uppercase
+                        {% if item.color == 'green' %} bg-green-500 border-green-500
+                        {% elif item.color == 'orange' %} bg-orange-400 border-orange-400
+                        {% else %} bg-gray-500 border-gray-500
+                        {% endif %}">
+                        {{ item.letter }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    {% if message %}
+    <div class="p-4 mb-4 text-lg rounded-lg {% if game.is_won %} bg-green-100 text-green-800 {% else %} bg-red-100 text-red-800 {% endif %}">
+        {{ message }}
+        <a href="{% url 'home' %}" class="font-bold underline ml-2">OK</a>
+    </div>
+    {% endif %}
+    {% if game.guesses_left > 0 and not game.is_won %}
+        <p class="text-gray-600 mb-4">You have {{ game.guesses_left }} guesses left.</p>
+        <form method="post" class="flex flex-col items-center">
+            {% csrf_token %}
+            {{ form.guess }}
+            <button type="submit" class="mt-4 w-full max-w-xs py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md">Submit Guess</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}
