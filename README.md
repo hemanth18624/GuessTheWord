@@ -1,6 +1,5 @@
 # Guess the Word - A Django Web Application
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 A modern, full-featured "Guess the Word" web application built with Python and Django. This project is a Wordle-like game that includes secure user authentication, role-based access, and a comprehensive reporting dashboard for superusers.
 
@@ -11,12 +10,12 @@ A modern, full-featured "Guess the Word" web application built with Python and D
 This application is built from the ground up to be secure, robust, and user-friendly, incorporating a wide range of modern web development practices.
 
 * **Secure User Authentication**:
-    * Separate registration and login portals for regular users and superusers.
+    * Separate registration and login portals for users and admin.
     * Custom validation rules for usernames (minimum 5 characters, upper/lowercase) and passwords (minimum 5 characters, must include alpha, numeric, and special characters `[$%*@]`).
 
 * **Role-Based Access**:
-    * **User Portal**: Players can register, log in, and play the game.
-    * **Superuser Portal**: Superusers have exclusive access to a reporting dashboard after logging in through a separate portal.
+    * **User Mode**: Players can register, log in, and play the game.
+    * **Admin Portal**: Admin have exclusive access to a reporting dashboard after logging in through a separate portal.
 
 * **Core Wordle-like Gameplay**:
     * A 5-letter word is randomly selected from the database for each game.
@@ -27,9 +26,9 @@ This application is built from the ground up to be secure, robust, and user-frie
 * **Daily Play Limit**:
     * Users are restricted to playing a maximum of 3 games per day to encourage daily engagement.
 
-* **Superuser Reporting Dashboard**:
+* **Admin Reporting Dashboard**:
     * **Daily Summary Report**: Shows the number of unique users who played and the total number of correct guesses for the current day.
-    * **User-Specific Report**: Allows the superuser to select any player from a dropdown menu and view their entire game history, including dates, words, and results.
+    * **User-Specific Report**: Allows the admin to select any player from a dropdown menu and view their entire game history, including dates, words, and results.
 
 * **Enhanced Security & UX**:
     * **Cache Control**: Implemented server-side cache-control headers to prevent browsers from caching sensitive pages (like logged-in game pages or login forms), fixing back/forward button issues after logout.
