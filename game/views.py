@@ -87,7 +87,7 @@ def play_game(request, game_id):
     if game.is_won:
         context['message'] = "Congratulations, you've guessed the word!"
     elif game.guesses_left <= 0:
-        context['message'] = f"Better luck next time! The word was {game.word_to_guess.text}."
+        context['message'] = f"Better luck next time."
     return render(request, 'game.html', context)
 
 @login_required
