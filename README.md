@@ -69,5 +69,5 @@ cd GuessTheWord
 
 #### 5. Run the Development Server
 * Run ```bash python manage.py runserver```
-* Open your web browser and go to ```bash http://127.0.0.1:8000/ ```.
+* Open your web browser and go to ```bash http://127.0.0.1:8000/```.
 
